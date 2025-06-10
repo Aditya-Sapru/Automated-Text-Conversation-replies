@@ -16,7 +16,7 @@ print("DEBUG: All imports successful")
 # Configure Streamlit page
 st.set_page_config(
     page_title="AI Commenter",
-    page_icon="💬",
+    page_icon="🦇",
     layout="wide"
 )
 
@@ -134,7 +134,8 @@ def main():
     st.markdown("Upload a conversation screenshot and get the perfect reply!")
     
     # Load API key
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = st.secrets["gpt"]["gemini_api_key"]
+    
     if not api_key:
         st.error("⚠️ GEMINI_API_KEY not found in environment variables!")
         st.info("Please set your Gemini API key in the .env file")
